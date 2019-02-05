@@ -1,0 +1,7 @@
+App\Entity\Article:
+    articles{0..99}:
+        createdAt: '<dateTime()>'
+        title: '<sentence(8)>'
+        body: '90%? <text()>'
+        author: '@users*'
+        categories: '3x @categories*'

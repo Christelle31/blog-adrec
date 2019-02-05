@@ -1,0 +1,9 @@
+menu:
+    foo:
+        label: "Home"
+    cv:
+        label: "CV"
+    articleOne:
+        label: "First article"
+#    articleList:
+#        label: "Article's list"

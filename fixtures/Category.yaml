@@ -1,0 +1,3 @@
+App\Entity\Category:
+    categories{0..9}:
+        label: '<word()>'

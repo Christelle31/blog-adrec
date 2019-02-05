@@ -3,10 +3,47 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    {% block foo %}{% endblock %}
+
+    <div class="img-bg">
+        ee,e,e,
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="{{ path('home') }}">
+                {{ 'menu.foo.label'|trans }}
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ path('cv') }}">
+                {{ 'menu.cv.label'|trans }}
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ path('article_one') }}">
+                {{ 'menu.articleOne.label'|trans }}
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ path('list_article', {'offset': 0}) }}">
+                {{ 'menu.articleList.label'|trans }}
+            </a>
+        </li>
+    </ul>
+
+        {% block body %}Coucou depuis BASE.HTML.TWIG{% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('build/app.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

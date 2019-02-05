@@ -1,0 +1,6 @@
+App\Entity\Comment:
+    comments{0..499}:
+        createdAt: '<dateTime()>'
+        text: '<text()>'
+        article: '@articles*'
+        author: '@users*'

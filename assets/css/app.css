@@ -1,0 +1,7 @@
+body {
+    background-color: lightgray;
+}
+
+.img-bg {
+    background-image: url('../images/foret.jpg');
+}
