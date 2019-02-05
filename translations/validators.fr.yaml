@@ -1,0 +1,6 @@
+article:
+    title:
+        NotBlank:
+            message: "Le titre est obligatoire"
+        Length:
+            minMessage: "Le titre {{ value }} doit faire au minimum {{ limit }} caractères."
