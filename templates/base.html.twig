@@ -8,6 +8,16 @@
         {% endblock %}
     </head>
     <body>
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}">
+                    {{ message|trans }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
     {% block foo %}{% endblock %}
 
     <div class="img-bg">

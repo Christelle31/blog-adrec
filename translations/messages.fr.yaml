@@ -7,3 +7,18 @@ menu:
         label: "Premier article"
     articleList:
         label: "Liste d'article"
+
+article:
+    form:
+        author:
+            label: "Auteur"
+        title:
+            label: "Titre"
+        body:
+            label: "Corps"
+        submit:
+            label: "Enregistrer"
+        submitAndRestart:
+            label: "Enregistrer et nouveau"
+        success:
+            label: "Article enregistré avec succès !"

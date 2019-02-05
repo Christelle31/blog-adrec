@@ -63,7 +63,15 @@ class ListArticleController extends AbstractController
             $em->persist($article);
             $em->flush();
 
+            $this->addFlash('success', 'article.form.success.label');
 
+            if ($form->get('submitAndRestart')->isClicked()) {
+                return $this->redirectToRoute('create_one_article');
+            }
+
+            return $this->redirectToRoute('show_one_article', [
+                'id' => $article->getId(),
+            ]);
         }
 
         return $this->render('list_article/create.html.twig', [
