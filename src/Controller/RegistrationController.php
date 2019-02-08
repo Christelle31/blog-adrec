@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthenticator;
+use App\Service\AppMailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, UserAuthenticator $authenticator, \Swift_Mailer $mailer): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, UserAuthenticator $authenticator, AppMailer $appMailer): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -36,13 +37,9 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $message = new \Swift_Message();
-            $message->setSubject('[Blog] Bienvenue');
-            $message->setTo($user->getEmail());
-            $message->setFrom('foo@foo.fr');
-            $message->setBody('Merci de vous êtes inscrit.');
-            
-            $mailer->send($message);
+            $appMailer->send('[Blog] Bienvenue', $user->getEmail(), 'mail/welcome.html.twig', [
+                'user' => $user,
+            ]);
 
             // do anything else you need here, like send an email
 
