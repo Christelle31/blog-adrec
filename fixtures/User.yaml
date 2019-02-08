@@ -4,3 +4,9 @@ App\Entity\User:
         password: '<password()>'
         email: '<email()>'
         roles: []
+
+    admin:
+        displayName: 'Admin'
+        password: '\$2y\$13\$CIXkYaEjXuE4UJwQ3jDpze4SbRtgV9GrNb33XVkBtlG7CSJzVSyf.'
+        email: 'admin@admin.com'
+        roles: ['ROLE_ADMIN']
